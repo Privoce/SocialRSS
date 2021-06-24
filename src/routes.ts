@@ -4,7 +4,6 @@ import { RouteOption } from './router/types';
 const routes: RouteOption[] = [
   {
     path: '/',
-    name: 'Home',
     component: lazy(() => import('./views/home')),
     exact: true,
   },
