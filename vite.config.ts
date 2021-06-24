@@ -9,7 +9,6 @@ export default defineConfig({
       '/api': {
         target: 'https://w7i1o4lwch.execute-api.ap-east-1.amazonaws.com',
         changeOrigin: true,
-        // secure: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
       },
     },
