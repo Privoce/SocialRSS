@@ -1,2 +1,36 @@
 .home-view {
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+
+  .head {
+    background-color: #d8d8d8;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+
+    .avatar {
+      width: 40px;
+      border-radius: 8px;
+    }
+  }
+
+  .rss-item {
+    background-color: #eee;
+    padding: 20px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+
+    .item-title {
+      display: block;
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 18px;
+    }
+
+    .info {
+      margin-bottom: 20px;
+      color: #888;
+    }
+  }
 }

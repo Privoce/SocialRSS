@@ -15,6 +15,7 @@ export interface IFeedsItem {
 export interface IFeeds {
   items: Array<IFeedsItem>;
   description: string;
+  title?: string;
   webMaster: string;
   generator: 'RSSHub';
   link: string;
