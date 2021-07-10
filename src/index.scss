@@ -12,7 +12,9 @@ body,
   background-color: #f5f8fa;
   font-size: 14px;
   line-height: 1.4;
-  touch-action: pan-x pan-y;
+  transform: none !important;
+  overflow-x: hidden;
+  word-break: break-all;
 }
 
 code {

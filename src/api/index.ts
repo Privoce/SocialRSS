@@ -1,6 +1,7 @@
 // https://github.com/Privoce/SocialRSS/issues/4#issuecomment-867606185
 import fetchAPI from '@utils/fetch';
 import { IFeeds } from './types';
+export * from './types';
 
 // GET /twitter/trends?geoId={number}
 // geoId shoule be WOEID: https://www.findmecity.com

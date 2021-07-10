@@ -7,11 +7,11 @@ const routes: RouteOption[] = [
     component: lazy(() => import('./views/home')),
     exact: true,
   },
-  {
-    path: '/detail',
-    component: lazy(() => import('./views/detail')),
-    exact: true,
-  },
+  // {
+  //   path: '/detail/:id',
+  //   component: lazy(() => import('./views/detail')),
+  //   exact: true,
+  // },
 ];
 
 export default routes;

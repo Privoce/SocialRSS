@@ -1,2 +1,31 @@
 .detail-view {
+  padding: 40px 20px 20px;
+  height: calc(100vh - 60px);
+  overflow-y: scroll;
+  line-height: 1.5;
+
+  .title {
+    text-decoration: none;
+    color: rgb(50, 123, 190);
+
+    h2 {
+      font-size: 18px;
+    }
+  }
+
+  .info {
+    margin: 20px 0;
+    color: #999;
+    font-size: 14px;
+  }
+
+  video,
+  img {
+    max-width: 480px;
+    width: 100%;
+  }
+
+  a {
+    color: rgb(78, 179, 137);
+  }
 }
