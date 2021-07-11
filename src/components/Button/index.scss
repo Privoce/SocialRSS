@@ -1,0 +1,21 @@
+.sr-button {
+  display: inline-block;
+  padding: 6px 12px;
+  border: solid 1px;
+  box-sizing: border-box;
+  border-radius: 18px;
+  font-weight: 700;
+  font-size: 16px;
+  user-select: none;
+  cursor: pointer;
+
+  &-blue {
+    border-color: var(--blue);
+    color: var(--blue);
+  }
+
+  &-gray {
+    border-color: var(--gray3);
+    color: var(--gray3);
+  }
+}

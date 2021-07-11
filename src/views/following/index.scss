@@ -1,0 +1,17 @@
+.following {
+  &-view {
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  &-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+
+    .sr-button {
+      margin-left: 10px;
+    }
+  }
+}

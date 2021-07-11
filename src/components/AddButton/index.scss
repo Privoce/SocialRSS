@@ -1,0 +1,24 @@
+.sr-add-button {
+  display: inline-block;
+  height: 36px;
+  line-height: 36px;
+  background-color: var(--blue);
+  color: #fff;
+  border-radius: 20px;
+  padding: 0 12px;
+  font-size: 16px;
+  font-weight: 700;
+  user-select: none;
+  cursor: pointer;
+
+  &::before {
+    display: inline-block;
+    content: '';
+    width: 14px;
+    height: 14px;
+    background-image: url('./img/add.svg');
+    background-size: 100%;
+    vertical-align: -1px;
+    margin-right: 10px;
+  }
+}

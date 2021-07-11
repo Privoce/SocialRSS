@@ -1,0 +1,21 @@
+.subscription-new {
+  &-view {
+    h2 {
+      font-size: 34px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+  }
+
+  &-list {
+    .sr-subscription-item {
+      display: inline-block;
+      width: calc(50% - 25px);
+      margin-bottom: 25px;
+
+      &:nth-child(2n) {
+        margin-left: 50px;
+      }
+    }
+  }
+}
