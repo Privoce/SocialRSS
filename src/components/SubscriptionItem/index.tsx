@@ -1,8 +1,8 @@
-import React, { FC, useState, useCallback } from 'react';
-import clsx from 'clsx';
+import React, { FC } from 'react';
 
-import './index.scss';
+import FollowButton from '@comps/FollowButton';
 import avatarIcon from './img/avatar.png';
+import './index.scss';
 
 interface SubscriptionItemProps {
   title: React.ReactNode;
@@ -18,20 +18,8 @@ const SubscriptionItem: FC<SubscriptionItemProps> = ({
   icon,
   title,
   onChange,
-  isFollow: _isFollow,
+  isFollow,
 }) => {
-  const [isFollow, setFollow] = useState<boolean | undefined>(_isFollow);
-
-  const handleFollow = () => {
-    setFollow(!isFollow);
-    onChange && onChange(!isFollow);
-  };
-
-  const renderTxt = useCallback(() => {
-    if (isFollow === undefined) return 'Follow';
-    return isFollow ? 'Following' : 'Unfollow';
-  }, [isFollow]);
-
   return (
     <div className={prefix}>
       <div>
@@ -39,15 +27,7 @@ const SubscriptionItem: FC<SubscriptionItemProps> = ({
           <i style={{ backgroundImage: `url(${icon})` }} />
           <span className="title">{title}</span>
         </div>
-        <div
-          className={clsx('actions', {
-            follow: isFollow,
-            fill: isFollow !== undefined,
-          })}
-          onClick={handleFollow}
-        >
-          {renderTxt()}
-        </div>
+        <FollowButton isFollow={isFollow} onChange={onChange} />
       </div>
     </div>
   );

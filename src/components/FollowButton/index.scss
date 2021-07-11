@@ -11,8 +11,11 @@
   line-height: 27px;
   font-weight: 700;
   color: var(--blue);
+  display: inline-block;
+  transition: background 0.3s ease-in-out;
 
   &.fill {
+    transition: background 0.3s ease-in-out;
     border: none;
     color: #fff;
     line-height: 28px;
@@ -20,6 +23,7 @@
     background-color: var(--red);
 
     &.follow {
+      transition: background 0.3s ease-in-out;
       background-color: var(--blue);
     }
   }

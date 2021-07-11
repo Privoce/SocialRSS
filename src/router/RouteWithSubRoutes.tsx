@@ -8,6 +8,7 @@ const RouteWithSubRoutes: React.FC<RouteOption> = (routeProps) => {
     <Suspense fallback={routeProps.fallback || null}>
       <Route
         path={routeProps.path}
+        exact={routeProps.exact}
         render={(props) =>
           routeProps.component && (
             <routeProps.component {...props} routes={routeProps.routes} />

@@ -1,0 +1,44 @@
+.base-layout {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+
+  .side-nav {
+    background: var(--gray);
+    width: 230px;
+    height: 100vh;
+    padding-top: 40px;
+
+    .menu-item {
+      display: flex;
+      align-items: center;
+      padding: 5px 0;
+      padding-left: 24px;
+      cursor: pointer;
+
+      .icon {
+        display: flex;
+        width: 30px;
+        height: 100%;
+        align-items: center;
+        margin-right: 10px;
+      }
+
+      i {
+        display: inline-block;
+        background-size: 100%;
+        margin: 0 auto;
+      }
+
+      span {
+        font-weight: 700;
+        font-size: 16px;
+      }
+    }
+  }
+
+  .main {
+    width: 100%;
+    overflow-y: auto;
+  }
+}
