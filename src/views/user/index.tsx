@@ -7,7 +7,7 @@ import './index.scss';
 
 export default function UserView() {
   return (
-    <div className="subscription-new-view">
+    <div className="user-view">
       <div>
         <RssProfile
           username="Victoria Kjhak"

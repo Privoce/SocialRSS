@@ -1,0 +1,131 @@
+.home-view {
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+
+  .head {
+    background-color: #eee;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+
+    .avatar {
+      width: 40px;
+      border-radius: 8px;
+      margin-right: 10px;
+    }
+
+    a {
+      font-size: 18px;
+      font-weight: bold;
+      color: rgb(50, 123, 190);
+    }
+
+    p {
+      color: #666;
+    }
+  }
+
+  .rss-item {
+    padding: 20px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: solid 1px #dadada;
+
+    .item-title {
+      display: block;
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 18px;
+      color: #333;
+    }
+
+    .info {
+      margin-bottom: 20px;
+      color: #888;
+    }
+
+    .content {
+      color: #4a4a4a;
+    }
+  }
+}
+
+.drawer {
+  position: fixed;
+  z-index: 1000;
+  width: 0;
+  height: 100%;
+
+  > * {
+    transition: transform 0.3s cubic-bezier(0.7, 0.3, 0.1, 1),
+      box-shadow 0.3s cubic-bezier(0.7, 0.3, 0.1, 1);
+  }
+
+  &-open {
+    width: 100%;
+    transition: transform 0.3s cubic-bezier(0.7, 0.3, 0.1, 1);
+  }
+
+  &-right {
+    top: 0;
+    right: 0;
+    height: 100%;
+  }
+
+  .drawer-mask {
+    height: 100%;
+    opacity: 1;
+    transition: none;
+    animation: drawerFadeIn 0.3s cubic-bezier(0.7, 0.3, 0.1, 1);
+    pointer-events: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(#000, 0.3);
+  }
+
+  &-content-wrapper {
+    box-shadow: -6px 0 16px -8px #00000014, -9px 0 28px #0000000d,
+      -12px 0 48px 16px #00000008;
+    background-color: #fff;
+    max-width: 600px;
+  }
+
+  &-right &-content-wrapper {
+    right: 0;
+    height: 100%;
+    position: absolute;
+  }
+
+  &-content {
+    position: relative;
+  }
+
+  &-close {
+    position: absolute;
+    z-index: 2;
+    right: 10px;
+    top: 10px;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-image: url('./close.svg');
+    background-size: 80%;
+    background-position: center;
+    background-color: #eee;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+}
+
+@keyframes drawerFadeIn {
+  0% {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

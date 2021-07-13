@@ -11,11 +11,12 @@ const routes: RouteOption[] = [
     component: lazy(() => import('./layouts/BaseLayout')),
     routes: [
       {
-        path: '/following',
-        component: lazy(() => import('./views/following')),
+        path: '/',
+        component: lazy(() => import('./views/home')),
+        exact: true,
       },
       {
-        path: '/user',
+        path: '/archived',
         component: lazy(() => import('./views/user')),
       },
       {

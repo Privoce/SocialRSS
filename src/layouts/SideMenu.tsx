@@ -1,45 +1,58 @@
-import React, { FC } from 'react';
+import React from 'react';
+import { useHistory } from 'react-router-dom';
 
 import homeIcon from './icons/home.svg';
 import archivedIcon from './icons/archived.svg';
 import settingIcon from './icons/setting.svg';
-import arrowIcon from './icons/arrow.svg';
-
-interface MenuItemProps {
-  icon: string;
-  title: string;
-  size: [number, number];
-}
-
-const MenuItem: FC<MenuItemProps> = ({ icon, title, size }) => {
-  return (
-    <div className="menu-item">
-      <span className="icon">
-        <i
-          style={{
-            backgroundImage: `url(${icon})`,
-            width: `${size[0]}px`,
-            height: `${size[1]}px`,
-          }}
-        />
-      </span>
-      <span>{title}</span>
-    </div>
-  );
-};
+import { MenuItem, MenuItemProps, FollowItem } from './Menu';
 
 const menuConfig: MenuItemProps[] = [
-  { icon: homeIcon, title: 'My Page', size: [26, 26] },
-  { icon: archivedIcon, title: 'Archived', size: [18, 24] },
+  { icon: homeIcon, title: 'My Page', path: '/', size: [26, 26] },
+  { icon: archivedIcon, title: 'Archived', path: 'archived', size: [18, 24] },
 ];
 
 export default function SideMenu() {
+  const history = useHistory();
+
+  const handleGo = () => {
+    history.push('/subscription');
+  };
+
   return (
     <div className="side-nav">
       {menuConfig.map((item) => {
         return <MenuItem key={item.title} {...item} />;
       })}
-      <div></div>
+      <div>
+        <div className="following">
+          <span>FOLLOWING</span>
+          <i
+            onClick={handleGo}
+            style={{ backgroundImage: `url(${settingIcon})` }}
+          />
+        </div>
+        <FollowItem
+          title="People"
+          dataSource={[
+            { icon: '', name: 'John Cage' },
+            { icon: '', name: 'John Cage' },
+          ]}
+        />
+        <FollowItem
+          title="Sources"
+          dataSource={[
+            { icon: '', name: 'John Cage' },
+            { icon: '', name: 'John Cage' },
+          ]}
+        />
+        <FollowItem
+          title="Newsletters"
+          dataSource={[
+            { icon: '', name: 'John Cage' },
+            { icon: '', name: 'John Cage' },
+          ]}
+        />
+      </div>
     </div>
   );
 }
