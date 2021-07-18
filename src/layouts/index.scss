@@ -16,6 +16,10 @@
       padding-left: 24px;
       cursor: pointer;
 
+      &.on {
+        color: var(--blue);
+      }
+
       .icon {
         display: flex;
         width: 30px;
@@ -25,7 +29,7 @@
       }
 
       i {
-        display: inline-block;
+        display: flex;
         background-size: 100%;
         margin: 0 auto;
       }
@@ -53,7 +57,11 @@
     }
 
     .follow-item {
-      padding-left: 24px;
+      padding: 5px 0 5px 24px;
+
+      ul {
+        padding-left: 0;
+      }
 
       .name {
         font-size: 16px;
@@ -80,7 +88,7 @@
           background-size: 100%;
           left: 0;
           top: 5px;
-          transform: rotate(-90deg);
+          transform: rotate(-180deg);
         }
       }
 

@@ -1,0 +1,36 @@
+.sr-search {
+  .sr-radiogroup {
+    margin-bottom: 20px;
+  }
+
+  .search-box {
+    display: flex;
+    margin-bottom: 20px;
+
+    .rmsc.multi-select {
+      width: 300px;
+      margin-right: 10px;
+    }
+
+    .search-input {
+      height: 40px;
+      background-color: #f1f9ff;
+      border: none;
+      border-radius: 6px;
+      outline: none;
+      padding: 0 10px;
+      margin-right: 10px;
+      flex: 1 1 auto;
+    }
+
+    .search-btn {
+      height: 40px;
+      padding: 0 15px;
+      background-color: var(--blue);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+  }
+}

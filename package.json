@@ -35,12 +35,15 @@
     "axios": "^0.21.1",
     "clsx": "^1.1.1",
     "dayjs": "^1.10.5",
+    "lodash": "^4.17.21",
     "rc-drawer": "^4.3.1",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
+    "react-multi-select-component": "^4.0.3",
     "react-router-dom": "^5.2.0"
   },
   "devDependencies": {
+    "@types/lodash": "^4.14.171",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "@types/react-router-dom": "^5.1.7",

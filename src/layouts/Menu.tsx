@@ -5,13 +5,13 @@ import clsx from 'clsx';
 import avatarIcon from './icons/avatar.png';
 
 export interface MenuItemProps {
-  icon: string;
+  icon: React.ReactNode | string;
   title: string;
   path: string;
-  size: [number, number];
+  isActive?: boolean;
 }
 
-const MenuItem: FC<MenuItemProps> = ({ icon, title, path, size }) => {
+const MenuItem: FC<MenuItemProps> = ({ icon, title, path, isActive }) => {
   const history = useHistory();
 
   const handleGo = () => {
@@ -19,15 +19,9 @@ const MenuItem: FC<MenuItemProps> = ({ icon, title, path, size }) => {
   };
 
   return (
-    <div className="menu-item" onClick={handleGo}>
+    <div className={clsx('menu-item', { on: isActive })} onClick={handleGo}>
       <span className="icon">
-        <i
-          style={{
-            backgroundImage: `url(${icon})`,
-            width: `${size[0]}px`,
-            height: `${size[1]}px`,
-          }}
-        />
+        <i>{icon}</i>
       </span>
       <span>{title}</span>
     </div>
@@ -50,18 +44,20 @@ const FollowItem: FC<FollowItemProps> = ({ title, dataSource }) => {
       >
         {title}
       </div>
-      <ul className={clsx({ open: isOpen })}>
-        {dataSource.map((item, idx) => {
-          return (
-            <li key={+idx} className="follow-sub-item">
-              <i
-                style={{ backgroundImage: `url(${item.icon || avatarIcon})` }}
-              />
-              <span>{item.name}</span>
-            </li>
-          );
-        })}
-      </ul>
+      {dataSource.length > 0 && isOpen && (
+        <ul className={clsx({ open: isOpen })}>
+          {dataSource.map((item, idx) => {
+            return (
+              <li key={+idx} className="follow-sub-item">
+                <i
+                  style={{ backgroundImage: `url(${item.icon || avatarIcon})` }}
+                />
+                <span>{item.name}</span>
+              </li>
+            );
+          })}
+        </ul>
+      )}
     </div>
   );
 };

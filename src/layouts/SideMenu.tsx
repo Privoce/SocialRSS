@@ -1,18 +1,20 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 
-import homeIcon from './icons/home.svg';
-import archivedIcon from './icons/archived.svg';
+import HomeIcon from '@comps/icon/HomeIcon';
+import ArchivedIcon from '@comps/icon/ArchivedIcon';
+
 import settingIcon from './icons/setting.svg';
 import { MenuItem, MenuItemProps, FollowItem } from './Menu';
 
-const menuConfig: MenuItemProps[] = [
-  { icon: homeIcon, title: 'My Page', path: '/', size: [26, 26] },
-  { icon: archivedIcon, title: 'Archived', path: 'archived', size: [18, 24] },
+const menuConfig = (): MenuItemProps[] => [
+  { icon: 'home', title: 'My Page', path: '/' },
+  { icon: 'archived', title: 'Archived', path: '/archived' },
 ];
 
 export default function SideMenu() {
   const history = useHistory();
+  const location = useLocation();
 
   const handleGo = () => {
     history.push('/subscription');
@@ -20,8 +22,22 @@ export default function SideMenu() {
 
   return (
     <div className="side-nav">
-      {menuConfig.map((item) => {
-        return <MenuItem key={item.title} {...item} />;
+      {menuConfig().map((item) => {
+        const isActive = location.pathname === item.path;
+        const fill = isActive ? 'var(--blue)' : '#828282';
+        return (
+          <MenuItem
+            key={item.title}
+            isActive={isActive}
+            {...item}
+            icon={
+              {
+                home: <HomeIcon fill={fill} />,
+                archived: <ArchivedIcon fill={fill} />,
+              }[item.icon as string]
+            }
+          />
+        );
       })}
       <div>
         <div className="following">
