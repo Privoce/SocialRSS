@@ -19,6 +19,10 @@ const RadioGroup: FC<RadioGroupProps> = ({ options, value, onChange }) => {
 
   useEffect(() => {
     setVal(value);
+    if (value) {
+      const item = options.find((i) => i.value === value);
+      value && onChange && onChange(value, item);
+    }
   }, [value]);
 
   const handleSelect = (item: Item) => {

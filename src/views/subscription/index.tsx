@@ -1,46 +1,41 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 
 import AddButton from '@comps/AddButton';
 import SubscriptionItem from '@comps/SubscriptionItem';
+import SubscriptionPanel from '@comps/SubscriptionPanel';
 
 import './index.scss';
 
 export default function FollowingView() {
+  const history = useHistory();
+
   return (
     <div className="subscription-view">
-      <h2 className="subscription-head">Subscription Management</h2>
-      <div className="add-actions">
-        <div>
-          <span>People</span>
-          <AddButton>Add People</AddButton>
-        </div>
+      <div className="subscription-head">
+        <h2>Subscription Management</h2>
+        <AddButton onClick={() => history.push('/subscription/new')}>
+          Add New Subscriptions
+        </AddButton>
       </div>
-      <div className="subscription-list">
+      <SubscriptionPanel title="People" type="people">
         <SubscriptionItem title="New York Times" />
         <SubscriptionItem title="New York Times" />
         <SubscriptionItem title="New York Times" />
         <SubscriptionItem title="New York Times" />
+      </SubscriptionPanel>
+      <SubscriptionPanel title="Websites" type="websites">
         <SubscriptionItem title="New York Times" />
         <SubscriptionItem title="New York Times" />
         <SubscriptionItem title="New York Times" />
         <SubscriptionItem title="New York Times" />
-      </div>
-      <div className="add-actions">
-        <div>
-          <span>Sources</span>
-          <AddButton>Add New Sources</AddButton>
-        </div>
-      </div>
-      <div className="subscription-list">
+      </SubscriptionPanel>
+      <SubscriptionPanel title="Newsletters" type="newsletters">
         <SubscriptionItem title="New York Times" />
         <SubscriptionItem title="New York Times" />
         <SubscriptionItem title="New York Times" />
         <SubscriptionItem title="New York Times" />
-        <SubscriptionItem title="New York Times" />
-        <SubscriptionItem title="New York Times" />
-        <SubscriptionItem title="New York Times" />
-        <SubscriptionItem title="New York Times" />
-      </div>
+      </SubscriptionPanel>
     </div>
   );
 }

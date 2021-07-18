@@ -1,0 +1,28 @@
+.sr-avatar {
+  .avatar {
+    position: relative;
+    font-style: normal;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-color: var(--blue);
+    border-radius: 50%;
+    text-align: center;
+    line-height: 24px;
+    color: #fff;
+    vertical-align: middle;
+    margin-right: 8px;
+
+    .unread {
+      display: inline-block;
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border: solid 1px var(--gray4);
+      background: var(--red);
+      border-radius: 50%;
+      top: 0;
+      right: 0;
+    }
+  }
+}

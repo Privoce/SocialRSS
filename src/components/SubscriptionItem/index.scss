@@ -3,7 +3,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: solid 1px var(--gray2);
+    background-color: #fff;
+    // border: solid 1px var(--gray2);
     padding: 12px 20px;
     border-radius: 15px;
   }
@@ -35,7 +36,7 @@
     min-width: 92px;
     cursor: pointer;
     user-select: none;
-    border: solid 1px var(--blue);
+    border: solid 2px var(--blue);
     text-align: center;
     line-height: 27px;
     font-weight: 700;

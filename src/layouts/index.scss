@@ -109,12 +109,17 @@
         align-items: center;
         cursor: pointer;
 
-        i {
-          display: inline-block;
-          background-size: 100%;
-          width: 24px;
-          height: 24px;
-          margin-right: 12px;
+        &.view-all {
+          font-weight: 700;
+
+          i {
+            display: inline-block;
+            background-size: 100%;
+            width: 24px;
+            height: 24px;
+            margin-right: 12px;
+            background-repeat: no-repeat;
+          }
         }
       }
     }

@@ -1,18 +1,28 @@
 import React from 'react';
 
-import Button from '@comps/Button';
+import RadioGroup from '@comps/RadioGroup';
 import RssItem from '@comps/RssItem';
 
 import './index.scss';
 
 export default function HomeView() {
+  const handleChange = (val: string) => {
+    console.log('TODO:', val);
+  };
+
   return (
     <div className="home-view">
       <div className="home-head">
         <div>Following</div>
         <div>
-          <Button>Today</Button>
-          <Button theme="blue">Unread Only</Button>
+          <RadioGroup
+            options={[
+              { label: 'Today', value: 'today' },
+              { label: 'Unread Only', value: 'unread_only' },
+            ]}
+            value="today"
+            onChange={handleChange}
+          />
         </div>
       </div>
       <div className="rss-list">
@@ -20,43 +30,37 @@ export default function HomeView() {
           widget="Fast Company / 1 d"
           title="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis"
           content="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim praesent elementum facilisis leo, vel fringilla est ullamcorper eget nulla facilisi etiam dignissim ..."
-          reactions="Su Han, Tristian and 3 others"
+          reactions={[{ name: 'Suhan', avatar: '', id: '' }]}
         />
         <RssItem
           widget="Fast Company / 1 d"
           title="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis"
           content="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim praesent elementum facilisis leo, vel fringilla est ullamcorper eget nulla facilisi etiam dignissim ..."
-          reactions="Su Han, Tristian and 3 others"
+          reactions={[
+            { name: 'Suhan', avatar: '', id: '' },
+            { name: 'Tristian', avatar: '', id: '' },
+          ]}
         />
         <RssItem
           widget="Fast Company / 1 d"
           title="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis"
           content="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim praesent elementum facilisis leo, vel fringilla est ullamcorper eget nulla facilisi etiam dignissim ..."
-          reactions="Su Han, Tristian and 3 others"
+          reactions={[
+            { name: 'Suhan', avatar: '', id: '' },
+            { name: 'Tristian', avatar: '', id: '' },
+            { name: 'Tamoghna Dey', avatar: '', id: '' },
+          ]}
         />
         <RssItem
           widget="Fast Company / 1 d"
           title="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis"
           content="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim praesent elementum facilisis leo, vel fringilla est ullamcorper eget nulla facilisi etiam dignissim ..."
-          reactions="Su Han, Tristian and 3 others"
-        />
-        <RssItem
-          widget="Fast Company / 1 d"
-          title="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis"
-          content="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim praesent elementum facilisis leo, vel fringilla est ullamcorper eget nulla facilisi etiam dignissim ..."
-          reactions="Su Han, Tristian and 3 others"
-        />
-        <RssItem
-          widget="Fast Company / 1 d"
-          title="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis"
-          content="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim praesent elementum facilisis leo, vel fringilla est ullamcorper eget nulla facilisi etiam dignissim ..."
-          reactions="Su Han, Tristian and 3 others"
-        />
-        <RssItem
-          widget="Fast Company / 1 d"
-          title="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis"
-          content="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim praesent elementum facilisis leo, vel fringilla est ullamcorper eget nulla facilisi etiam dignissim ..."
-          reactions="Su Han, Tristian and 3 others"
+          reactions={[
+            { name: 'Suhan', avatar: '', id: '' },
+            { name: 'Tristian', avatar: '', id: '' },
+            { name: 'Tamoghna Dey', avatar: '', id: '' },
+            { name: 'Tamoghna Dey2', avatar: '', id: '' },
+          ]}
         />
       </div>
     </div>

@@ -2,7 +2,10 @@ import React, { FC, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import clsx from 'clsx';
 
+import Avatar from '@comps/Avatar';
+
 import avatarIcon from './icons/avatar.png';
+import viewAllIcon from './icons/view-all.svg';
 
 export interface MenuItemProps {
   icon: React.ReactNode | string;
@@ -30,11 +33,21 @@ const MenuItem: FC<MenuItemProps> = ({ icon, title, path, isActive }) => {
 
 export interface FollowItemProps {
   title: string;
+  type?: string;
   dataSource: any[];
 }
 
-const FollowItem: FC<FollowItemProps> = ({ title, dataSource }) => {
+const FollowItem: FC<FollowItemProps> = ({ title, type, dataSource }) => {
+  const history = useHistory();
   const [isOpen, setOpen] = useState(false);
+
+  const handleViewAll = () => {
+    history.push(`/subscription?type=${type}`);
+  };
+
+  const handleViewUser = (id: string) => {
+    history.push(`/user/${id}`);
+  };
 
   return (
     <div className="follow-item">
@@ -48,14 +61,23 @@ const FollowItem: FC<FollowItemProps> = ({ title, dataSource }) => {
         <ul className={clsx({ open: isOpen })}>
           {dataSource.map((item, idx) => {
             return (
-              <li key={+idx} className="follow-sub-item">
-                <i
+              <li
+                key={+idx}
+                className="follow-sub-item"
+                onClick={() => handleViewUser(item.name)}
+              >
+                <Avatar name={item.name} />
+                {/* <i
                   style={{ backgroundImage: `url(${item.icon || avatarIcon})` }}
                 />
-                <span>{item.name}</span>
+                <span>{item.name}</span> */}
               </li>
             );
           })}
+          <li className="follow-sub-item view-all" onClick={handleViewAll}>
+            <i style={{ backgroundImage: `url(${viewAllIcon})` }} />
+            <span>View All</span>
+          </li>
         </ul>
       )}
     </div>

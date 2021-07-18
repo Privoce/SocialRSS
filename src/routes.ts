@@ -20,6 +20,10 @@ const routes: RouteOption[] = [
         component: lazy(() => import('./views/user')),
       },
       {
+        path: '/user/:id',
+        component: lazy(() => import('./views/user')),
+      },
+      {
         path: '/subscription',
         component: lazy(() => import('./views/subscription')),
         exact: true,

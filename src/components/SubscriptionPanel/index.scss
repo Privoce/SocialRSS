@@ -1,0 +1,51 @@
+.sr-subscription-panel {
+  background-color: var(--gray4);
+  padding: 18px 32px;
+  border-radius: 15px;
+
+  &.fold {
+    .subscription-title {
+      img {
+        transform: rotate(0);
+      }
+    }
+
+    .subscription-list {
+      display: none;
+    }
+  }
+
+  .subscription-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+
+    > span {
+      font-size: 24px;
+      font-weight: 400;
+    }
+
+    img {
+      width: 20px;
+      user-select: none;
+      transform: rotate(180deg);
+    }
+  }
+
+  .subscription-list {
+    display: block;
+    margin-top: 24px;
+
+    .sr-subscription-item {
+      display: inline-block;
+      width: calc(50% - 12px);
+      margin-bottom: 12px;
+
+      &:nth-child(2n) {
+        margin-left: 12px;
+      }
+    }
+  }
+}

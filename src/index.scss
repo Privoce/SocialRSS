@@ -8,7 +8,7 @@ body,
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
   scroll-behavior: smooth;
-  background-color: #f5f8fa;
+  // background-color: #f5f5f5;
   font-size: 14px;
   line-height: 1.4;
   transform: none !important;
@@ -44,11 +44,11 @@ img {
 #root {
   --black: #000;
   --blue: #056cf2;
-  // --gray: #f5f6f8;
-  --gray: #f0f0f0;
   --red: #b63546;
+  --gray: #f0f0f0;
   --gray2: #c5c7d0;
   --gray3: #828282;
+  --gray4: #f5f6f8;
 }
 
 [class*='-view'] {

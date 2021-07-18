@@ -10,7 +10,11 @@ interface RssItemProps {
   title: React.ReactNode;
   widget: React.ReactNode;
   content: React.ReactNode;
-  reactions: React.ReactNode;
+  reactions: Array<{
+    name: string;
+    avatar: string;
+    id: string;
+  }>;
   onLike?: () => void;
   onSave?: () => void;
 }
@@ -34,6 +38,30 @@ const RssItem: FC<RssItemProps> = ({
     onLike && onLike();
   };
 
+  const renderReactions = () => {
+    if (reactions.length <= 2) {
+      return reactions.map((i) => i.name).join(' and ');
+    }
+    if (reactions.length === 3) {
+      return reactions
+        .map((i, idx) => {
+          if (idx === 0) return `${i.name}, `;
+          if (idx === 1) return `${i.name} and `;
+          return i.name;
+        })
+        .join('');
+    }
+    if (reactions.length > 3) {
+      return reactions
+        .map((i, idx) => {
+          if (idx === 0) return `${i.name}, `;
+          if (idx === 1) return `${i.name} and `;
+          if (idx === 2) return `${reactions.length - 2} others`;
+        })
+        .join('');
+    }
+  };
+
   return (
     <div className={clsx(prefix, className)}>
       <div className={`${prefix}-img`}>
@@ -46,7 +74,7 @@ const RssItem: FC<RssItemProps> = ({
         <div className={`${prefix}-reactions`}>
           <div className="txt">
             <span className="txt1">Recommended by </span>
-            <span className="txt2">{reactions}</span>
+            <span className="txt2">{renderReactions()}</span>
           </div>
           <div className={`${prefix}-actions`}>
             <i className="save" onClick={handleSave} />

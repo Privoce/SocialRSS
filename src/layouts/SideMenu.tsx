@@ -49,13 +49,15 @@ export default function SideMenu() {
         </div>
         <FollowItem
           title="People"
+          type="people"
           dataSource={[
             { icon: '', name: 'John Cage' },
             { icon: '', name: 'John Cage' },
           ]}
         />
         <FollowItem
-          title="Sources"
+          title="Websites"
+          type="websites"
           dataSource={[
             { icon: '', name: 'John Cage' },
             { icon: '', name: 'John Cage' },
@@ -63,6 +65,7 @@ export default function SideMenu() {
         />
         <FollowItem
           title="Newsletters"
+          type="newsletters"
           dataSource={[
             { icon: '', name: 'John Cage' },
             { icon: '', name: 'John Cage' },
