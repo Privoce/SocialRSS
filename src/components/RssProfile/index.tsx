@@ -8,9 +8,10 @@ import FollowButton from '@comps/FollowButton';
 interface RssProfileProps {
   avatar?: string;
   username: string;
-  widget: React.ReactNode;
+  tags: Array<string>;
   describe?: React.ReactNode;
   isFollow?: boolean;
+  userID?: string;
   onChange?: (status: boolean | undefined) => void;
 }
 
@@ -19,11 +20,22 @@ const prefix = 'sr-rss-profile';
 const RssProfile: FC<RssProfileProps> = ({
   username,
   describe,
-  widget,
+  tags,
   isFollow,
   onChange,
   avatar,
+  userID,
 }) => {
+  const renderTags = () => {
+    return tags.map((i) => {
+      return (
+        <span className="tag" key={i}>
+          #{i}
+        </span>
+      );
+    });
+  };
+
   return (
     <div className={prefix}>
       <img className={`${prefix}-avatar`} src={avatar} />
@@ -32,7 +44,8 @@ const RssProfile: FC<RssProfileProps> = ({
           <span className="username">{username}</span>
           <FollowButton isFollow={isFollow} onChange={onChange} />
         </div>
-        <div className="widget">{widget}</div>
+        <div className="id">ID: {userID}</div>
+        <div className="tags">{renderTags()}</div>
         <div className="describe">{describe}</div>
       </div>
     </div>

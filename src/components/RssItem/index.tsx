@@ -1,5 +1,8 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import clsx from 'clsx';
+
+import BookmarkIcon from '@comps/icon/BookmarkIcon';
+import LikeIcon from '@comps/icon/LikeIcon';
 
 import rssImg from './img/default.png';
 import './index.scss';
@@ -31,11 +34,17 @@ const RssItem: FC<RssItemProps> = ({
   onSave,
   onLike,
 }) => {
+  const [isSave, setSave] = useState(false);
+  const [isLike, setLike] = useState(false);
+
   const handleSave = () => {
     onSave && onSave();
+    setSave(!isSave);
   };
+
   const handleLike = () => {
     onLike && onLike();
+    setLike(!isLike);
   };
 
   const renderReactions = () => {
@@ -77,8 +86,12 @@ const RssItem: FC<RssItemProps> = ({
             <span className="txt2">{renderReactions()}</span>
           </div>
           <div className={`${prefix}-actions`}>
-            <i className="save" onClick={handleSave} />
-            <i className="like" onClick={handleLike} />
+            <i className="save" onClick={handleSave}>
+              <BookmarkIcon fill={isSave ? 'var(--blue)' : '#828282'} />
+            </i>
+            <i className="like" onClick={handleLike}>
+              <LikeIcon fill={isLike ? 'var(--blue)' : '#828282'} />
+            </i>
           </div>
         </div>
       </div>

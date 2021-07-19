@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function HomeIcon({ fill = '#828282' }) {
+export default function BookmarkIcon({ fill = '#828282' }) {
   return (
     <svg
       width="18"

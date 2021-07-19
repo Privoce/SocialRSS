@@ -2,7 +2,7 @@ import React from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 
 import HomeIcon from '@comps/icon/HomeIcon';
-import ArchivedIcon from '@comps/icon/ArchivedIcon';
+import BookmarkIcon from '@/components/icon/BookmarkIcon';
 
 import settingIcon from './icons/setting.svg';
 import { MenuItem, MenuItemProps, FollowItem } from './Menu';
@@ -33,7 +33,7 @@ export default function SideMenu() {
             icon={
               {
                 home: <HomeIcon fill={fill} />,
-                archived: <ArchivedIcon fill={fill} />,
+                archived: <BookmarkIcon fill={fill} />,
               }[item.icon as string]
             }
           />

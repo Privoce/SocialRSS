@@ -11,7 +11,8 @@ export default function UserView() {
       <div>
         <RssProfile
           username="Victoria Kjhak"
-          widget="24 Followers / #Lifestyle #Health"
+          userID="82381294"
+          tags={['Lifestyle', 'Health', 'Fitness']}
           describe="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non."
         />
       </div>
