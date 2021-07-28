@@ -29,3 +29,17 @@ export interface IFeeds {
     title: string; // "Twitter @DIYgod"
   };
 }
+
+export type PutPlatformData = {
+  addPlatforms: Array<string>;
+  removePlatforms: Array<string>;
+  userId: string;
+};
+
+export type ActionType = 'archive' | 'publish';
+
+export type ReactionData = {
+  actionType: ActionType;
+  content: any; // this should be the post object
+  userId: string;
+};

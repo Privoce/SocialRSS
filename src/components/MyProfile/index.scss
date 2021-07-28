@@ -1,0 +1,67 @@
+.sr-my-profile {
+  display: flex;
+
+  &-avatar {
+    min-width: 100px;
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+  }
+
+  &-info {
+    font-size: 16px;
+    font-weight: 400px;
+
+    .head {
+      .username {
+        font-size: 34px;
+        font-weight: 700;
+        margin-right: 20px;
+        vertical-align: -6px;
+      }
+
+      .edit-btn {
+        color: var(--gray3);
+        font-size: 16px;
+        padding: 4px 10px;
+        border-radius: 4px;
+        border: solid 1px var(--gray3);
+        cursor: pointer;
+      }
+    }
+
+    .id {
+      color: var(--gray3);
+    }
+
+    .tags {
+      margin-top: 5px;
+
+      .tag {
+        font-size: 16px;
+        font-weight: 400;
+        color: var(--blue);
+        margin-right: 6px;
+        cursor: pointer;
+      }
+    }
+
+    .describe {
+      margin-top: 10px;
+      font-size: 16px;
+      font-weight: 400;
+    }
+
+    .follow-count {
+      margin-top: 12px;
+      div {
+        display: inline-block;
+        margin-right: 24px;
+
+        b {
+          margin-right: 8px;
+        }
+      }
+    }
+  }
+}
