@@ -8,27 +8,27 @@
     margin-right: 20px;
   }
 
+  &-head {
+    .username {
+      font-size: 34px;
+      font-weight: 700;
+      margin-right: 20px;
+      vertical-align: -6px;
+    }
+
+    .edit-btn {
+      color: var(--gray3);
+      font-size: 16px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      border: solid 1px var(--gray3);
+      cursor: pointer;
+    }
+  }
+
   &-info {
     font-size: 16px;
     font-weight: 400px;
-
-    .head {
-      .username {
-        font-size: 34px;
-        font-weight: 700;
-        margin-right: 20px;
-        vertical-align: -6px;
-      }
-
-      .edit-btn {
-        color: var(--gray3);
-        font-size: 16px;
-        padding: 4px 10px;
-        border-radius: 4px;
-        border: solid 1px var(--gray3);
-        cursor: pointer;
-      }
-    }
 
     .id {
       color: var(--gray3);

@@ -8,6 +8,7 @@ import rssImg from './img/default.png';
 import './index.scss';
 
 interface RssItemProps {
+  rawData?: any;
   className?: string;
   img?: string;
   title: React.ReactNode;
@@ -20,6 +21,7 @@ interface RssItemProps {
   }>;
   onLike?: () => void;
   onSave?: () => void;
+  onView?: (data: any) => void;
 }
 
 const prefix = 'sr-rss-item';
@@ -33,6 +35,8 @@ const RssItem: FC<RssItemProps> = ({
   reactions,
   onSave,
   onLike,
+  rawData,
+  onView,
 }) => {
   const [isSave, setSave] = useState(false);
   const [isLike, setLike] = useState(false);
@@ -71,8 +75,12 @@ const RssItem: FC<RssItemProps> = ({
     }
   };
 
+  const handleDetail = () => {
+    onView && onView(rawData);
+  };
+
   return (
-    <div className={clsx(prefix, className)}>
+    <div className={clsx(prefix, className)} onClick={handleDetail}>
       <div className={`${prefix}-img`}>
         <img src={img} alt="RSS Thumbnail" />
       </div>

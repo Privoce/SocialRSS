@@ -1,25 +1,43 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
-import RadioGroup from '@comps/RadioGroup';
+// import RadioGroup from '@comps/RadioGroup';
 import RssItem from '@comps/RssItem';
 import MyProfile from '@comps/MyProfile';
-// import { getListByUser, getReactionList } from '@/api';
+import Modal from '@comps/Modal';
+import { getListByUser, getReactionList } from '@/api';
 
 import './index.scss';
 
 export default function HomeView() {
-  const handleChange = (val: string) => {
-    console.log('TODO:', val);
-  };
+  // const handleChange = (val: string) => {
+  //   console.log('TODO:', val);
+  // };
+
+  const [list, setList] = useState<any>([]);
+  const [loading, setLoading] = useState(false);
+  const [isVisible, setVisible] = useState(false);
+  const [detail, setDetail] = useState(null);
 
   useEffect(() => {
-    // (async () => {
-    //   const data = await getListByUser('2');
-    //   const data2 = await getReactionList();
-    //   console.log('«17» /views/home/index.tsx ~> ', data);
-    //   console.log('«19» /views/home/index.tsx ~> ', data2);
-    // })();
+    (async () => {
+      setLoading(true);
+      const data: any = await getListByUser('2');
+      setLoading(false);
+      data.forEach((i: any) => {
+        if (i && i.items) {
+          setList([...list, ...i.items]);
+        }
+      });
+    })();
   }, []);
+
+  const handleDetail = (data: any) => {
+    setVisible(true);
+    setDetail(data);
+    console.log('«34» /views/home/index.tsx ~> ', data);
+  };
+
+  // console.log('«29» /views/home/index.tsx ~> ', list);
 
   return (
     <div className="home-view">
@@ -44,13 +62,24 @@ export default function HomeView() {
         />
       </div>
       <div className="rss-list">
-        <RssItem
-          widget="Fast Company / 1 d"
-          title="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis"
-          content="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim praesent elementum facilisis leo, vel fringilla est ullamcorper eget nulla facilisi etiam dignissim ..."
-          reactions={[{ name: 'Suhan', avatar: '', id: '' }]}
-        />
-        <RssItem
+        {loading ? (
+          <div>loading...</div>
+        ) : (
+          list.map((i: any) => {
+            return (
+              <RssItem
+                key={i.contentId}
+                widget="Fast Company / 1 d"
+                title={i.title}
+                content={i.contentSnippet}
+                reactions={[{ name: 'Suhan', avatar: '', id: '' }]}
+                onView={handleDetail}
+                rawData={i}
+              />
+            );
+          })
+        )}
+        {/* <RssItem
           widget="Fast Company / 1 d"
           title="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis"
           content="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim praesent elementum facilisis leo, vel fringilla est ullamcorper eget nulla facilisi etiam dignissim ..."
@@ -79,8 +108,11 @@ export default function HomeView() {
             { name: 'Tamoghna Dey', avatar: '', id: '' },
             { name: 'Tamoghna Dey2', avatar: '', id: '' },
           ]}
-        />
+        /> */}
       </div>
+      <Modal open={isVisible}>
+        <pre>{JSON.stringify(detail, null, 2)}</pre>
+      </Modal>
     </div>
   );
 }

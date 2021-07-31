@@ -2,10 +2,6 @@ import { lazy } from 'react';
 import { RouteOption } from './router/types';
 
 const routes: RouteOption[] = [
-  // {
-  //   path: '/',
-  //   component: lazy(() => import('./views/home')),
-  // },
   {
     path: '/',
     component: lazy(() => import('./layouts/BaseLayout')),
@@ -14,6 +10,10 @@ const routes: RouteOption[] = [
         path: '/',
         component: lazy(() => import('./views/home')),
         exact: true,
+      },
+      {
+        path: '/profile',
+        component: lazy(() => import('./views/profile')),
       },
       {
         path: '/archived',

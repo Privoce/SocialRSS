@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import avatarImg from './img/avatar.png';
 import './index.scss';
@@ -18,29 +19,36 @@ const prefix = 'sr-my-profile';
 const MyProfile: FC<MyProfileProps> = ({
   username,
   describe,
-  tags,
-  isFollow,
-  onChange,
+  // tags,
+  // isFollow,
+  // onChange,
   avatar,
   userID,
 }) => {
-  const renderTags = () => {
-    return tags.map((i) => {
-      return (
-        <span className="tag" key={i}>
-          #{i}
-        </span>
-      );
-    });
+  const history = useHistory();
+  // const renderTags = () => {
+  //   return tags.map((i) => {
+  //     return (
+  //       <span className="tag" key={i}>
+  //         #{i}
+  //       </span>
+  //     );
+  //   });
+  // };
+
+  const handleEdit = () => {
+    history.push('/profile');
   };
 
   return (
     <div className={prefix}>
       <img className={`${prefix}-avatar`} src={avatar} />
       <div className={`${prefix}-info`}>
-        <div className="head">
+        <div className={`${prefix}-head`}>
           <span className="username">{username}</span>
-          <span className="edit-btn">Edit</span>
+          <span className="edit-btn" onClick={handleEdit}>
+            Edit
+          </span>
         </div>
         <div className="id">ID: {userID}</div>
         {/* <div className="tags">{renderTags()}</div> */}
