@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 // import RadioGroup from '@comps/RadioGroup';
 import RssItem from '@comps/RssItem';
 import MyProfile from '@comps/MyProfile';
-import Modal from '@comps/Modal';
+import RssDetail from '@comps/RssDetail';
 import { getListByUser, getReactionList } from '@/api';
 
 import './index.scss';
@@ -15,8 +15,7 @@ export default function HomeView() {
 
   const [list, setList] = useState<any>([]);
   const [loading, setLoading] = useState(false);
-  const [isVisible, setVisible] = useState(false);
-  const [detail, setDetail] = useState(null);
+  const [detail, setDetail] = useState<any>(null);
 
   useEffect(() => {
     (async () => {
@@ -32,9 +31,11 @@ export default function HomeView() {
   }, []);
 
   const handleDetail = (data: any) => {
-    setVisible(true);
     setDetail(data);
-    console.log('«34» /views/home/index.tsx ~> ', data);
+  };
+
+  const handleClose = () => {
+    setDetail(null);
   };
 
   // console.log('«29» /views/home/index.tsx ~> ', list);
@@ -71,6 +72,7 @@ export default function HomeView() {
                 key={i.contentId}
                 widget="Fast Company / 1 d"
                 title={i.title}
+                img={i.icon}
                 content={i.contentSnippet}
                 reactions={[{ name: 'Suhan', avatar: '', id: '' }]}
                 onView={handleDetail}
@@ -110,9 +112,7 @@ export default function HomeView() {
           ]}
         /> */}
       </div>
-      <Modal open={isVisible}>
-        <pre>{JSON.stringify(detail, null, 2)}</pre>
-      </Modal>
+      <RssDetail dataSorce={detail} onClose={handleClose} />
     </div>
   );
 }

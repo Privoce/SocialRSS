@@ -1,2 +1,86 @@
 .profile-view {
+  h2 {
+    font-weight: 700;
+    font-size: 34px;
+  }
+
+  .form-item {
+    max-width: 800px;
+    margin-bottom: 30px;
+
+    i {
+      color: var(--red);
+    }
+
+    .label {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .tip {
+      font-size: 12px;
+      font-weight: 400px;
+      color: var(--gray3);
+      margin-top: 2px;
+    }
+
+    input {
+      width: 100%;
+      border: none;
+      outline: none;
+      border-bottom: solid 1px var(--gray5);
+      padding: 10px 0;
+      font-size: 16px;
+      font-weight: 400px;
+    }
+
+    .upload {
+      display: flex;
+      align-items: center;
+
+      img {
+        width: 100px;
+        height: 100px;
+        margin-right: 20px;
+        border-radius: 50%;
+      }
+    }
+
+    .upload-file {
+      position: relative;
+      display: inline-block;
+      background: #fff;
+      border: 2px solid var(--blue);
+      border-radius: 4px;
+      padding: 4px 12px;
+      overflow: hidden;
+      color: var(--blue);
+      text-decoration: none;
+      text-indent: 0;
+      line-height: 20px;
+      font-size: 14px;
+      font-weight: 700;
+
+      input {
+        position: absolute;
+        font-size: 100px;
+        right: 0;
+        top: 0;
+        opacity: 0;
+      }
+    }
+  }
+
+  .save-btn {
+    color: #fff;
+    background: var(--blue);
+    border: none;
+    outline: none;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
 }

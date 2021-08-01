@@ -41,6 +41,7 @@ img {
   box-sizing: border-box;
 }
 
+body,
 #root {
   --black: #000;
   --blue: #056cf2;
@@ -49,6 +50,7 @@ img {
   --gray2: #c5c7d0;
   --gray3: #828282;
   --gray4: #f5f6f8;
+  --gray5: #c4c4c4;
 }
 
 [class*='-view'] {

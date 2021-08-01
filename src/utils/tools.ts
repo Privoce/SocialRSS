@@ -1,7 +1,12 @@
 import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
+
+dayjs.extend(relativeTime);
 
 export const fmtDate = (date: string) =>
   dayjs(date).format('YYYY-MM-DD hh:ss:mm');
+
+export const dateToNow = (date: string) => dayjs(date).toNow();
 
 export function scrollLoad(callback: () => void) {
   const scrollHeight = Math.max(

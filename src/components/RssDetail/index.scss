@@ -1,0 +1,55 @@
+.detail-modal {
+  .modal-content {
+    padding: 0 !important;
+
+    .actions {
+      display: flex;
+      height: 64px;
+      padding: 20px 0;
+      margin: 0 80px;
+      border-bottom: solid 1px var(--gray5);
+      justify-content: space-between;
+      align-items: center;
+
+      i {
+        display: inline-block;
+        background-size: 100%;
+        margin-right: 30px;
+        cursor: pointer;
+      }
+
+      .save {
+        width: 14px;
+        height: 18px;
+        vertical-align: -2px;
+      }
+
+      .like {
+        width: 20px;
+        height: 19px;
+      }
+
+      .read-source {
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--blue);
+        border: solid 1px var(--blue);
+        border-radius: 4px;
+        padding: 3px 10px;
+        cursor: pointer;
+      }
+    }
+  }
+  .modal-content .post {
+    padding: 10px 80px;
+    height: calc(80vh - 70px);
+    overflow-y: scroll;
+
+    & > div {
+      h3 {
+        font-size: 32px;
+        font-weight: 800;
+      }
+    }
+  }
+}

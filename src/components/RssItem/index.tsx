@@ -3,6 +3,7 @@ import clsx from 'clsx';
 
 import BookmarkIcon from '@comps/icon/BookmarkIcon';
 import LikeIcon from '@comps/icon/LikeIcon';
+import { dateToNow } from '@utils/tools';
 
 import rssImg from './img/default.png';
 import './index.scss';
@@ -86,7 +87,7 @@ const RssItem: FC<RssItemProps> = ({
       </div>
       <div>
         <h3>{title}</h3>
-        <div className={`${prefix}-widget`}>{widget}</div>
+        <div className={`${prefix}-widget`}>{dateToNow(rawData.isoDate)}</div>
         <div className={`${prefix}-content`}>{content}</div>
         <div className={`${prefix}-reactions`}>
           <div className="txt">
