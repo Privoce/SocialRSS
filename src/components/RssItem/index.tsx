@@ -87,7 +87,7 @@ const RssItem: FC<RssItemProps> = ({
       </div>
       <div>
         <h3>{title}</h3>
-        <div className={`${prefix}-widget`}>{dateToNow(rawData.isoDate)}</div>
+        <div className={`${prefix}-widget`}>{dateToNow(rawData?.isoDate)}</div>
         <div className={`${prefix}-content`}>{content}</div>
         <div className={`${prefix}-reactions`}>
           <div className="txt">

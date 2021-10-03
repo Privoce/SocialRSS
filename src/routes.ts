@@ -3,6 +3,16 @@ import { RouteOption } from './router/types';
 
 const routes: RouteOption[] = [
   {
+    path: '/register',
+    component: lazy(() => import('./views/register')),
+    exact: true,
+  },
+  {
+    path: '/login',
+    component: lazy(() => import('./views/login')),
+    exact: true,
+  },
+  {
     path: '/',
     component: lazy(() => import('./layouts/BaseLayout')),
     routes: [

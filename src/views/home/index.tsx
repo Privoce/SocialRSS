@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import RssItem from '@comps/RssItem';
 import MyProfile from '@comps/MyProfile';
 import RssDetail from '@comps/RssDetail';
-import { getListByUser, getReactionList } from '@/api';
+// import { getListByUser, getReactionList } from '@/api';
 
 import './index.scss';
 
@@ -17,18 +17,18 @@ export default function HomeView() {
   const [loading, setLoading] = useState(false);
   const [detail, setDetail] = useState<any>(null);
 
-  useEffect(() => {
-    (async () => {
-      setLoading(true);
-      const data: any = await getListByUser('2');
-      setLoading(false);
-      data.forEach((i: any) => {
-        if (i && i.items) {
-          setList([...list, ...i.items]);
-        }
-      });
-    })();
-  }, []);
+  // useEffect(() => {
+  //   (async () => {
+  //     setLoading(true);
+  //     const data: any = await getListByUser('2');
+  //     setLoading(false);
+  //     data.forEach((i: any) => {
+  //       if (i && i.items) {
+  //         setList([...list, ...i.items]);
+  //       }
+  //     });
+  //   })();
+  // }, []);
 
   const handleDetail = (data: any) => {
     setDetail(data);
