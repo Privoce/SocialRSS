@@ -11,6 +11,14 @@ export function authLogin(data: Record<string, string>) {
   return fetchAPI.post('/auth/login', data);
 }
 
+export function authLogout() {
+  return fetchAPI.delete('/auth/logout');
+}
+
+export function rssDispatch(url: string) {
+  return fetchAPI.post('/rss/dispatch', { url });
+}
+
 // GET /twitter/trends?geoId={number}
 // geoId shoule be WOEID: https://www.findmecity.com
 // export function twitterTrends(geoId: string): Promise<IFeeds> {

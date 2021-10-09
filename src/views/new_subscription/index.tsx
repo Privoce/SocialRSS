@@ -7,7 +7,7 @@ import './index.scss';
 
 export default function NewSubscriptionsView() {
   return (
-    <div className="subscription-new-view">
+    <div className="new-subscription-view">
       <h2>Add New Subscriptions</h2>
       <AdvancedSearch />
       <div className="subscription-new-list">

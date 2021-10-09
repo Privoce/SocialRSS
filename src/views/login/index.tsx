@@ -17,10 +17,14 @@ export default function RegisterView() {
 
   const handleSubmit = async () => {
     const res: any = await authLogin(form);
-    if (res) {
+    if (res && res.token) {
       Cookies.set('token', res.token);
       history.push('/');
     }
+  };
+
+  const handleRegister = () => {
+    history.push('/register');
   };
 
   return (
@@ -34,6 +38,7 @@ export default function RegisterView() {
         <input onChange={(e) => setVal('password', e)} type="password" />
       </div>
       <button onClick={handleSubmit}>Login</button>
+      <button onClick={handleRegister}>Register</button>
     </div>
   );
 }

@@ -17,7 +17,7 @@ export default function RegisterView() {
 
   const handleSubmit = async () => {
     const res: any = await authRegister(form);
-    if (res) {
+    if (res && res?.token) {
       toast.success(res.name);
       Cookies.set('token', res.token);
       history.push('/');

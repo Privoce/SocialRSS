@@ -14,7 +14,7 @@ export default function FollowingView() {
     <div className="subscription-view">
       <div className="subscription-head">
         <h2>Subscription Management</h2>
-        <AddButton onClick={() => history.push('/subscription/new')}>
+        <AddButton onClick={() => history.push('/new/subscription')}>
           Add New Subscriptions
         </AddButton>
       </div>

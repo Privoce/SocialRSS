@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
+import { getCookie } from '@utils/tools';
+
 // export const BASE_URL = 'https://w7i1o4lwch.execute-api.ap-east-1.amazonaws.com/dev';
 export const BASE_URL = '/api/v1';
 
@@ -12,7 +14,8 @@ const instance = axios.create({
 
 // 请求拦截
 instance.interceptors.request.use((config) => {
-  // config.headers.token = 'token';
+  const token = getCookie('token');
+  if (token) config.headers.token = token;
   return config;
 });
 

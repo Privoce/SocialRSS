@@ -39,8 +39,12 @@ const routes: RouteOption[] = [
         exact: true,
       },
       {
-        path: '/subscription/new',
-        component: lazy(() => import('./views/subscription_new')),
+        path: '/new/subscription',
+        component: lazy(() => import('./views/new_subscription')),
+      },
+      {
+        path: '/new/source',
+        component: lazy(() => import('./views/new_source')),
       },
     ],
   },

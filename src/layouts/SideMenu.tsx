@@ -2,7 +2,8 @@ import React from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 
 import HomeIcon from '@comps/icon/HomeIcon';
-import BookmarkIcon from '@/components/icon/BookmarkIcon';
+import BookmarkIcon from '@comps/icon/BookmarkIcon';
+import AddButton from '@comps/AddButton';
 
 import settingIcon from './icons/setting.svg';
 import { MenuItem, MenuItemProps, FollowItem } from './Menu';
@@ -18,6 +19,10 @@ export default function SideMenu() {
 
   const handleGo = () => {
     history.push('/subscription');
+  };
+
+  const hanldeNewSource = () => {
+    history.push('/new/source');
   };
 
   return (
@@ -46,6 +51,9 @@ export default function SideMenu() {
             onClick={handleGo}
             style={{ backgroundImage: `url(${settingIcon})` }}
           />
+        </div>
+        <div className="side-new-source">
+          <AddButton onClick={hanldeNewSource}>New Source</AddButton>
         </div>
         <FollowItem
           title="People"
