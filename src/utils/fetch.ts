@@ -15,7 +15,7 @@ const instance = axios.create({
 // 请求拦截
 instance.interceptors.request.use((config) => {
   const token = getCookie('token');
-  if (token) config.headers.token = token;
+  if (token) config.headers.Authorization = `bearer ${token}`;
   return config;
 });
 
